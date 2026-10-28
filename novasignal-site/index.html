@@ -1,0 +1,1259 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>NovaSignal — Design &amp; Technology Studio</title>
+<meta name="description" content="NovaSignal progetta e sviluppa siti web, software, app e automazioni su misura. Studio a Roma, clienti in tutto il mondo. Anteprima gratuita prima di pagare.">
+<meta name="theme-color" content="#000000">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="NovaSignal — Design & Technology Studio">
+<meta property="og:description" content="Siti web, software, app e automazioni su misura. Anteprima gratuita prima di pagare.">
+<meta property="og:image" content="https://novasignal.it/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/hero/f001.webp" fetchpriority="high" media="(min-aspect-ratio: 4/5)">
+<link rel="preload" as="image" href="assets/hero-m/f001.webp" fetchpriority="high" media="(max-aspect-ratio: 4/5)">
+<style>
+:root{
+  --void:#000;
+  --paper:#f5f5f7;
+  --mute:#8e8e93;
+  --dim:#48484a;
+  --line:rgba(245,245,247,.14);
+  --ember:#ff7a1a;
+  --gold:#f2b544;
+  --aqua:#3fe0b5;
+  --cyan:#2ec5ff;
+  --spectrum:linear-gradient(90deg,var(--ember),var(--gold) 34%,var(--aqua) 68%,var(--cyan));
+  --font:"SF Pro Display","SF Pro Text",-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",system-ui,sans-serif;
+  --gutter:clamp(16px,4vw,56px);
+  --max:1440px;
+  --ease:cubic-bezier(.2,.7,.1,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--void);color-scheme:dark;-webkit-text-size-adjust:100%}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{margin:0;background:var(--void);color:var(--paper);font-family:var(--font);font-size:17px;line-height:1.5;letter-spacing:-.011em;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:clip}
+img,video,canvas{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:4px}
+::selection{background:var(--gold);color:#000}
+.skip{position:fixed;left:16px;top:-60px;z-index:200;background:var(--paper);color:#000;padding:10px 14px;border-radius:8px}
+.skip:focus{top:16px}
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- type ---------- */
+.display{font-size:clamp(3rem,8.6vw,9rem);line-height:.9;letter-spacing:-.055em;font-weight:600;margin:0}
+.h2{font-size:clamp(2.4rem,5.4vw,5.4rem);line-height:.95;letter-spacing:-.048em;font-weight:600;margin:0}
+.h3{font-size:clamp(1.7rem,2.8vw,2.6rem);line-height:1.02;letter-spacing:-.035em;font-weight:600;margin:0}
+.lead{font-size:clamp(1.12rem,1.5vw,1.4rem);line-height:1.42;letter-spacing:-.018em;color:rgba(245,245,247,.82);max-width:34em;margin:0}
+.small{font-size:.875rem;color:var(--mute)}
+.tag{font-size:.875rem;color:var(--mute);margin:0 0 20px;display:flex;align-items:center;gap:10px}
+.tag i{width:8px;height:8px;display:inline-block;background:var(--c,var(--paper))}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 24px;border-radius:999px;font-weight:600;font-size:1rem;letter-spacing:-.01em;transition:transform .4s var(--ease),background .3s,color .3s;white-space:nowrap}
+.btn-primary{background:var(--paper);color:#000}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{border:1px solid rgba(245,245,247,.32);color:var(--paper)}
+.btn-ghost:hover{border-color:var(--paper)}
+.btn .sq{width:8px;height:8px;background:var(--ember);transition:transform .4s var(--ease)}
+.btn:hover .sq{transform:rotate(90deg)}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:90;transition:transform .5s var(--ease),background .4s}
+.nav.hide{transform:translateY(-100%)}
+.nav.solid{background:rgba(0,0,0,.62);backdrop-filter:saturate(1.4) blur(18px);-webkit-backdrop-filter:saturate(1.4) blur(18px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:68px;gap:24px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:1.06rem;letter-spacing:-.03em}
+.brand svg{width:15px;height:auto}
+.nav-links{display:flex;gap:30px;font-size:.92rem;color:rgba(245,245,247,.78)}
+.nav-links a:hover{color:var(--paper)}
+.nav-r{display:flex;align-items:center;gap:14px}
+.lang{font-size:.85rem;font-weight:600;width:40px;height:36px;border-radius:999px;border:1px solid var(--line)}
+.lang:hover{border-color:var(--paper)}
+.nav .btn{height:40px;padding:0 18px;font-size:.9rem}
+.nav-mini{display:none;font-size:.92rem;font-weight:500}
+@media (max-width:900px){.nav-links{display:none}.nav .btn-primary{display:none}.nav-mini{display:inline}}
+
+/* ---------- preloader ---------- */
+.loader{position:fixed;inset:0;z-index:150;background:#000;display:grid;place-items:center}
+.loader-in{width:min(320px,70vw)}
+.loader-row{display:flex;justify-content:space-between;font-size:.85rem;color:var(--mute);margin-bottom:12px}
+.loader-bar{height:1px;background:var(--line);position:relative;overflow:hidden}
+.loader-bar span{position:absolute;inset:0;background:var(--spectrum);transform-origin:left;transform:scaleX(0)}
+.loaded .loader{pointer-events:none}
+
+/* ---------- hero ---------- */
+.hero{position:relative;height:1140vh}
+.anchor{position:absolute;left:0;width:1px;height:1px}
+.stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+#heroCanvas{position:absolute;inset:0;width:100%;height:100%;transform-origin:50% 45%;will-change:transform}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,0) 55%,rgba(0,0,0,.8) 100%),linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,0) 60%);pointer-events:none}
+.hero-copy{position:absolute;left:0;right:0;bottom:clamp(40px,9vh,110px)}
+.hero-a .display{max-width:11ch}
+.hero-a .line{display:block;overflow:hidden;padding-bottom:.06em}
+.hero-a .line>span{display:block;will-change:transform}
+.hero-a .tag{margin-bottom:28px}
+.hero-b{opacity:0}
+.hero-b .h2{max-width:13ch;margin-bottom:28px}
+.hero-b .lead{margin-bottom:36px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.signal{position:absolute;left:0;bottom:calc(clamp(40px,9vh,110px) - 30px);height:1px;width:100%;background:var(--spectrum);transform-origin:left;transform:scaleX(0)}
+.cue{position:absolute;right:var(--gutter);bottom:clamp(40px,9vh,110px);font-size:.85rem;color:var(--mute);display:flex;align-items:center;gap:12px}
+.cue b{width:1px;height:46px;background:var(--line);position:relative;overflow:hidden}
+.cue b::after{content:"";position:absolute;left:0;top:-14px;width:1px;height:14px;background:var(--paper);animation:drip 2.2s var(--ease) infinite}
+@keyframes drip{to{transform:translateY(60px)}}
+.portal{position:absolute;inset:0;clip-path:inset(50% 50% 50% 50%);will-change:clip-path;background:#000}
+.portal .gx{position:absolute;inset:-6%;will-change:transform}
+.portal .gx video,.portal .gx img{width:100%;height:100%;object-fit:cover}
+.portal .veil{position:absolute;inset:0;background:radial-gradient(ellipse at 28% 50%,rgba(0,0,0,.66),rgba(0,0,0,.18) 62%,rgba(0,0,0,.5));opacity:0}
+.portal .mwrap{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center}
+.mtext{font-size:clamp(2rem,4.4vw,4.4rem);line-height:1.04;letter-spacing:-.045em;font-weight:600;max-width:17ch;margin:0;text-wrap:pretty}
+.mtext .w{opacity:0}
+.mfoot{margin-top:44px;display:flex;align-items:center;gap:16px;color:var(--mute);font-size:.95rem;opacity:0}
+.mfoot .rule{width:120px;height:1px;background:var(--line);position:relative;overflow:hidden}
+.mfoot .rule span{position:absolute;inset:0;background:var(--spectrum);transform-origin:left;transform:scaleX(0)}
+.svc-head{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;opacity:0;visibility:hidden}
+.svc-head .h2{max-width:14ch}
+.svc-head .lead{margin-top:24px}
+
+/* ---------- services ---------- */
+.sec-head{padding-top:clamp(110px,16vh,180px);padding-bottom:clamp(40px,7vh,80px)}
+.sec-head .h2{max-width:14ch}
+.sec-head .lead{margin-top:24px}
+.world{position:absolute;inset:0}
+.world .panel{position:absolute;inset:0;clip-path:inset(50% 50% 50% 50%);will-change:clip-path;background:#000}
+.world .panel video,.world .panel img{width:100%;height:100%;object-fit:cover;transform:scale(1.25);will-change:transform}
+.world .panel::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.86) 0%,rgba(0,0,0,.55) 42%,rgba(0,0,0,.08) 76%),linear-gradient(0deg,rgba(0,0,0,.55),rgba(0,0,0,0) 40%)}
+.world .copy{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;max-width:var(--max);margin:0 auto;padding:0 var(--gutter);opacity:0;visibility:hidden}
+.world .copy>*{max-width:560px}
+.world .h2{margin-bottom:22px}
+.world .lead{margin-bottom:30px}
+.deliver{list-style:none;margin:0 0 34px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+.deliver li{padding:12px 0;border-top:1px solid var(--line);font-size:.98rem;color:rgba(245,245,247,.86)}
+.world .more{font-weight:600;display:inline-flex;gap:10px;align-items:center;border-bottom:1px solid rgba(245,245,247,.4);padding-bottom:4px;width:max-content}
+.world .more:hover{border-color:var(--paper)}
+.svc-nav{position:absolute;right:var(--gutter);bottom:clamp(32px,7vh,72px);list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;font-size:.88rem;opacity:0}
+.svc-nav li{display:flex;align-items:center;gap:10px;color:var(--dim);transition:color .4s var(--ease)}
+.svc-nav li i{width:8px;height:8px;background:var(--c);opacity:.35;transition:opacity .4s,transform .5s var(--ease)}
+.svc-nav li.on{color:var(--paper)}
+.svc-nav li.on i{opacity:1;transform:rotate(90deg)}
+@media (max-width:640px){.deliver{gap:0 16px;margin-bottom:24px}.deliver li{font-size:.86rem;padding:9px 0}.world .lead{font-size:1.02rem;margin-bottom:22px}.svc-nav{flex-direction:row;left:var(--gutter);right:auto;bottom:24px}.svc-nav span{display:none}}
+
+/* ---------- work ---------- */
+.work{padding:clamp(120px,18vh,200px) 0 clamp(80px,12vh,140px)}
+.work-top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:48px;flex-wrap:wrap}
+.arrows{display:flex;gap:10px}
+.arrows button{width:52px;height:52px;border-radius:999px;border:1px solid rgba(245,245,247,.3);display:grid;place-items:center}
+.arrows button:hover{border-color:var(--paper)}
+.arrows svg{width:18px;height:18px}
+.slides{position:relative;border-top:1px solid var(--line);overflow:hidden;touch-action:pan-y}
+.slides-track{display:flex;gap:var(--sgap,48px);will-change:transform}
+.slides-track.anim{transition:transform .7s cubic-bezier(.22,.8,.2,1)}
+.slide{flex:0 0 100%;min-width:0;display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(24px,4vw,64px);padding:40px 0 0;align-items:start;transition:opacity .7s var(--ease)}
+.slide:not(.is-current){opacity:.35}
+.slides img{-webkit-user-drag:none;user-select:none}
+.shot{position:relative;aspect-ratio:16/10;border-radius:14px;overflow:hidden;background:rgba(0,0,0,.28);-webkit-backdrop-filter:blur(16px) saturate(1.2);backdrop-filter:blur(16px) saturate(1.2);border:1px solid rgba(245,245,247,.18)}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top}
+.shot .fallback{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(20px,3vw,36px);background:rgba(0,0,0,.38)}
+.shot .fallback b{font-size:clamp(2.2rem,5vw,4.6rem);line-height:.92;letter-spacing:-.05em;font-weight:600;max-width:8ch}
+.shot .fallback span{font-size:.9rem;color:rgba(245,245,247,.75);display:flex;align-items:center;gap:10px}
+.shot .fallback span i{width:8px;height:8px;background:var(--c)}
+.shot.has-img .fallback{display:none}
+.shot img{transition:transform 1.2s var(--ease)}
+.shot:hover img{transform:scale(1.025)}
+.shot-open{position:absolute;inset:0;z-index:2;border-radius:inherit;display:flex;align-items:flex-end;justify-content:center;padding:18px}
+.shot-open .pill{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 18px;border-radius:999px;background:rgba(0,0,0,.72);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid rgba(245,245,247,.2);font-weight:600;font-size:.92rem;transform:translateY(8px);opacity:.92;transition:transform .5s var(--ease),opacity .4s,background .3s}
+.shot-open .pill i{width:7px;height:7px;background:var(--c)}
+.shot-open:hover .pill,.shot-open:focus-visible .pill{transform:none;opacity:1;background:rgba(0,0,0,.85)}
+/* ---------- site viewer ---------- */
+.viewer{position:fixed;inset:0;z-index:120;background:#000;display:flex;flex-direction:column;clip-path:inset(0);transition:clip-path .85s var(--ease)}
+.viewer[hidden]{display:none}
+.viewer-bar{height:60px;flex:none;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:env(safe-area-inset-top,0px) max(16px,env(safe-area-inset-right,0px)) 0 max(16px,env(safe-area-inset-left,0px));border-bottom:1px solid var(--line)}
+.viewer-dom{display:flex;align-items:center;gap:10px;font-weight:600;font-size:.95rem;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.viewer-dom i{width:8px;height:8px;background:var(--aqua);flex:none}
+.viewer-actions{display:flex;gap:8px;flex:none}
+.viewer-btn{height:38px;padding:0 16px;border-radius:999px;border:1px solid rgba(245,245,247,.28);display:inline-flex;align-items:center;font-size:.88rem;font-weight:600}
+.viewer-btn:hover{border-color:var(--paper)}
+.viewer-close{background:var(--paper);color:#000;border-color:var(--paper)}
+.viewer-frame{position:relative;flex:1;background:#000 center/cover no-repeat}
+.viewer-frame::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.55);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+.viewer-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff;opacity:0;transition:opacity .6s}
+.viewer-frame.ready iframe{opacity:1}
+.viewer-wait{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:.9rem;color:rgba(245,245,247,.8);display:flex;align-items:center;gap:10px}
+.viewer-wait i{width:8px;height:8px;background:var(--gold);animation:spin 1.2s linear infinite}
+.viewer-frame.ready .viewer-wait{display:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (max-width:560px){.viewer-open-txt{display:none}}
+.slide .meta{display:flex;flex-direction:column;align-items:flex-start;gap:22px;padding-top:6px}
+.slide .h3{max-width:14ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font-size:.82rem;padding:6px 12px;border-radius:999px;border:1px solid var(--line);color:rgba(245,245,247,.8)}
+.count{font-size:.9rem;color:var(--mute);font-variant-numeric:tabular-nums}
+.lock-l,.lock-r{will-change:transform}
+@media (max-width:860px){.slide{grid-template-columns:1fr}}
+
+/* ---------- process ---------- */
+.process{position:relative;height:380vh}
+.sand{position:absolute;inset:-4%;will-change:transform}
+.sand video{width:100%;height:100%;object-fit:cover}
+.process .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.92) 0%,rgba(0,0,0,.72) 38%,rgba(0,0,0,.15) 72%,rgba(0,0,0,.35) 100%),linear-gradient(180deg,#000 0%,rgba(0,0,0,0) 18%,rgba(0,0,0,0) 82%,#000 100%)}
+.process .wrap{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center;padding-top:70px}
+.process .h2{font-size:clamp(2.2rem,4.6vw,4.6rem)}
+.process .h2{max-width:12ch;margin-bottom:clamp(28px,5vh,52px)}
+.steps-wrap{position:relative;padding-left:34px;max-width:520px}.steps{list-style:none;margin:0;padding:0}
+.track{position:absolute;left:4px;top:8px;bottom:8px;width:1px;background:var(--line)}
+.track .fill{position:absolute;left:0;top:0;width:1px;height:100%;background:linear-gradient(180deg,var(--ember),var(--gold),var(--aqua),var(--cyan));transform-origin:top;transform:scaleY(0)}
+.dot{position:absolute;left:0;top:8px;width:9px;height:9px;background:var(--paper);box-shadow:0 0 8px rgba(242,181,68,.35)}
+.step{padding:0 0 clamp(12px,2.2vh,22px);opacity:.34;transition:opacity .7s var(--ease)}
+.step.on{opacity:1}
+.step b{display:block;font-size:clamp(1.15rem,1.6vw,1.45rem);letter-spacing:-.025em;font-weight:600}
+.step small{display:block;font-size:.82rem;color:var(--gold);margin:2px 0 4px;font-variant-numeric:tabular-nums}
+.step-detail{display:grid;margin-top:clamp(18px,3vh,30px);padding-left:34px;max-width:520px}
+.step-detail p{grid-area:1/1;margin:0;color:rgba(245,245,247,.8);font-size:1rem;line-height:1.5;max-width:40ch;opacity:0;transform:translateY(8px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.step-detail p.on{opacity:1;transform:none}
+.dot{will-change:transform}
+@media (max-aspect-ratio:4/5){.process .wrap{padding-bottom:96px}.process .shade{background:linear-gradient(180deg,#000 0%,rgba(0,0,0,.62) 16%,rgba(0,0,0,.55) 50%,rgba(0,0,0,.66) 82%,#000 100%)}.process .wrap{padding-top:56px}}
+
+/* ---------- pricing ---------- */
+.pricing{padding:clamp(110px,16vh,180px) 0 40px}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-top:56px}
+.plan{padding:36px clamp(20px,2.4vw,36px) 40px 0;display:flex;flex-direction:column;gap:18px;position:relative}
+.plan+.plan{padding-left:clamp(20px,2.4vw,36px);border-left:1px solid var(--line)}
+.plan.pick::before{content:"";position:absolute;left:0;right:0;top:-1px;height:2px;background:var(--spectrum)}
+.plan h3{margin:0;font-size:1.3rem;letter-spacing:-.03em;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.plan h3 em{font-style:normal;font-size:.78rem;font-weight:500;color:#000;background:var(--paper);padding:4px 10px;border-radius:999px;letter-spacing:0}
+.price{font-size:clamp(2.6rem,4.4vw,4rem);font-weight:600;letter-spacing:-.05em;line-height:1}
+.price .pre{font-size:1rem;font-weight:500;color:var(--mute);letter-spacing:-.01em;margin-right:8px}
+.price small{font-size:.9rem;font-weight:500;color:var(--mute);letter-spacing:-.01em;margin-left:6px}
+.plan p{margin:0;color:rgba(245,245,247,.78);min-height:3em}
+.plan ul{list-style:none;margin:0;padding:0;flex:1}
+.plan li{padding:11px 0 11px 20px;border-top:1px solid var(--line);font-size:.96rem;position:relative}
+.plan li::before{content:"";position:absolute;left:0;top:19px;width:6px;height:6px;background:var(--c,var(--paper))}
+.plan .btn{align-self:flex-start;margin-top:8px}
+.monthly{margin-top:72px}
+.monthly h3{font-size:1.3rem;letter-spacing:-.03em;margin:0 0 18px}
+.mrow{display:grid;grid-template-columns:180px 1fr auto;gap:24px;align-items:baseline;padding:20px 0;border-top:1px solid var(--line)}
+.mrow:last-child{border-bottom:1px solid var(--line)}
+.mrow b{font-size:1.15rem;letter-spacing:-.025em}
+.mrow span{color:rgba(245,245,247,.75)}
+.mrow strong{font-size:1.15rem;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.vat{margin-top:18px}
+@media (max-width:900px){.plans{grid-template-columns:1fr}.plan,.plan+.plan{padding:32px 0;border-left:0}.plan+.plan{border-top:1px solid var(--line)}.mrow{grid-template-columns:1fr auto}.mrow span{grid-column:1/-1;order:3}}
+
+/* ---------- faq ---------- */
+.faq{padding:clamp(100px,14vh,160px) 0}
+.faq-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(32px,6vw,96px)}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:24px 40px 24px 0;font-size:1.15rem;font-weight:600;letter-spacing:-.02em;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:6px;top:50%;width:10px;height:10px;margin-top:-5px;background:var(--dim);transition:transform .45s var(--ease),background .3s}
+.faq details[open] summary::after{transform:rotate(45deg);background:var(--gold)}
+.faq details p{margin:0 0 26px;color:rgba(245,245,247,.75);max-width:58ch}
+@media (max-width:860px){.faq-grid{grid-template-columns:1fr}}
+
+/* ---------- contact ---------- */
+.contact{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding:120px 0}
+.contact .bg{position:absolute;inset:0}
+.contact .bg video,.contact .bg img{width:100%;height:100%;object-fit:cover;opacity:.75;filter:saturate(.55) hue-rotate(-12deg)}
+.contact .bg::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(0,0,0,.25),rgba(0,0,0,.85) 70%)}
+.contact .wrap{position:relative;display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(32px,6vw,96px);align-items:center}
+.contact .h2{max-width:11ch;margin-bottom:24px}
+.direct{display:flex;flex-direction:column;gap:6px;margin-top:36px}
+.direct a{font-size:1.2rem;font-weight:600;letter-spacing:-.02em;width:max-content;border-bottom:1px solid transparent}
+.direct a:hover{border-color:var(--paper)}
+form{background:rgba(10,10,10,.72);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--line);border-radius:20px;padding:clamp(22px,3vw,36px);display:flex;flex-direction:column;gap:18px}
+label{font-size:.85rem;color:var(--mute);display:block;margin-bottom:8px}
+input,textarea{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(245,245,247,.25);color:var(--paper);font:inherit;padding:10px 0;font-size:1.05rem;border-radius:0}
+input:focus,textarea:focus{outline:none;border-color:var(--gold)}
+textarea{resize:vertical;min-height:84px}
+.pick{display:flex;flex-wrap:wrap;gap:8px}
+.pick input{position:absolute;opacity:0;width:1px;height:1px}
+.pick label{margin:0;padding:9px 14px;border-radius:999px;border:1px solid var(--line);color:rgba(245,245,247,.85);font-size:.92rem;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.pick input:checked+label{background:var(--paper);color:#000;border-color:var(--paper)}
+.pick input:focus-visible+label{outline:2px solid var(--cyan);outline-offset:2px}
+form .btn{width:100%;justify-content:center;margin-top:4px}
+.form-note{font-size:.82rem;color:var(--mute);margin:0;text-align:center}
+.err{font-size:.85rem;color:var(--ember);margin:0;min-height:1.2em}
+@media (max-width:900px){.contact .wrap{grid-template-columns:1fr}}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:56px 0 calc(40px + env(safe-area-inset-bottom))}
+.foot{display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
+.foot p{margin:10px 0 0;color:var(--mute);max-width:38ch;font-size:.95rem}
+.foot h4{margin:0 0 12px;font-size:.85rem;color:var(--mute);font-weight:500}
+.foot ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:.95rem}
+.foot a:hover{color:var(--gold)}
+.legal{margin-top:56px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.82rem;color:var(--dim)}
+@media (max-width:760px){.foot{grid-template-columns:1fr 1fr}.foot>div:first-child{grid-column:1/-1}}
+
+/* ---------- floating whatsapp (mobile) ---------- */
+.wa{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:80;height:52px;padding:0 20px;border-radius:999px;background:var(--paper);color:#000;font-weight:600;display:none;align-items:center;gap:10px;box-shadow:0 10px 30px rgba(0,0,0,.4);transition:transform .5s var(--ease),opacity .4s}
+.wa.off{transform:translateY(90px);opacity:0}
+.wa svg{width:20px;height:20px}
+@media (max-width:900px){.wa{display:inline-flex}}
+
+/* ---------- atmospheres for the lower page ---------- */
+.work,.pricing,.faq{position:relative;overflow:hidden;overflow:clip}
+.work>.wrap,.pricing>.wrap,.faq>.wrap{position:relative}
+.work .tag{color:rgba(245,245,247,.82)}
+.atmo{position:absolute;inset:0;pointer-events:none}
+.atmo video,.atmo img{width:100%;height:100%;object-fit:cover}
+.work .atmo{inset:-8% 0;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 12%,#000 74%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0%,#000 12%,#000 74%,transparent 100%);will-change:transform}
+.work .atmo video,.work .atmo img{filter:brightness(1.1)}
+.work .atmo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,.05) 50%,rgba(0,0,0,0))}
+.pricing .atmo{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 120px,#000 calc(100% - 160px),transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 120px,#000 calc(100% - 160px),transparent 100%)}
+.pricing .atmo .pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.pricing .atmo video{will-change:transform;opacity:.85}
+.pricing .atmo .dim{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 30%,rgba(0,0,0,.5),rgba(0,0,0,.2) 70%),rgba(0,0,0,.25);will-change:opacity}
+.plans,.monthly{position:relative;background:rgba(0,0,0,.5);-webkit-backdrop-filter:blur(14px) saturate(1.1);backdrop-filter:blur(14px) saturate(1.1);border-radius:18px;padding-left:clamp(16px,2.4vw,32px);padding-right:clamp(16px,2.4vw,32px)}
+.plans{border-top:0;margin-top:48px}
+.plan.pick::before{left:calc(-1 * clamp(16px,2.4vw,32px) * 0);top:0}
+.monthly{padding-top:24px;padding-bottom:8px}
+.mrow:last-child{border-bottom:0}
+.faq-side{position:sticky;top:110px;align-self:start}
+.faq-window{position:relative;margin-top:44px;width:min(100%,380px);aspect-ratio:1;overflow:hidden;clip-path:inset(0);background:#000}
+.faq-window video{width:100%;height:100%;object-fit:cover}
+.faq-window figcaption{position:absolute;left:14px;bottom:12px;font-size:.78rem;color:rgba(245,245,247,.7);display:flex;gap:8px;align-items:center}
+.faq-window figcaption i{width:6px;height:6px;background:var(--aqua)}
+.faq-window{margin-left:0;margin-right:0;margin-bottom:0}
+@media (max-width:860px){.faq-side{position:relative;top:0}.faq-window{width:min(100%,300px)}}
+.giant{position:relative;margin-top:72px;overflow:hidden;isolation:isolate}
+.giant video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1}
+.giant span{display:block;background:#000;color:#fff;mix-blend-mode:multiply;font-size:clamp(3.4rem,15vw,14.5rem);font-weight:600;letter-spacing:-.065em;line-height:.84;padding:.02em 0 .1em;white-space:nowrap}
+footer{overflow:hidden}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion:reduce){
+  .loader,.cue,.signal,.dot,.svc-nav{display:none}
+  .hero{height:auto}.hero .stick{position:relative;height:auto;overflow:visible}
+  #heroCanvas,.hero-shade{height:100svh;bottom:auto}
+  .hero-a{position:absolute;bottom:auto;top:calc(100svh - 70vh)}
+  .hero-b{opacity:1;position:relative;padding:80px 0;background:#000;margin-top:100svh}
+  .portal{position:relative;clip-path:none;min-height:100svh}
+  .portal .gx{inset:0}.portal .veil{opacity:1}
+  .portal .mwrap{position:relative;padding:160px 0}
+  .mtext .w,.mfoot{opacity:1}.mfoot .rule span{transform:none}
+  .svc-head{position:relative;opacity:1;visibility:visible;padding:140px 0 40px;background:#000}
+  .world{position:relative;min-height:100svh;display:flex;align-items:center}
+  .world .panel{clip-path:none}.world .panel video,.world .panel img{transform:none}
+  .world .copy{position:relative;opacity:1;visibility:visible;padding-block:120px;width:100%}
+  .process{height:auto}.process .stick{position:relative;height:auto;padding:160px 0}
+  .step{opacity:1}.step-detail{display:block}.step-detail p{opacity:1;transform:none;margin-bottom:10px}.track .fill{transform:none}
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Vai al contenuto</a>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-in">
+    <div class="loader-row"><span>NovaSignal</span><span id="loadPct">0</span></div>
+    <div class="loader-bar"><span id="loadBar"></span></div>
+  </div>
+</div>
+
+<!-- SOSTITUISCI il simbolo qui sotto con l'SVG ufficiale del logo NovaSignal (viewBox 345x510) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gBand" x1="0" x2="1"><stop offset="0" stop-color="#f2b544"/><stop offset="1" stop-color="#3fe0b5"/></linearGradient>
+    <linearGradient id="gTail" x1="0" x2="1" y1="1" y2="0"><stop offset="0" stop-color="#3fe0b5"/><stop offset="1" stop-color="#2ec5ff"/></linearGradient>
+  </defs>
+  <symbol id="mark" viewBox="0 0 345 510">
+    <polygon points="140,0 305,0 118,232" fill="#ff7a1a"/>
+    <rect x="160" y="168" width="64" height="64" fill="#f5f5f7"/>
+    <polygon points="70,250 290,250 262,292 42,292" fill="url(#gBand)"/>
+    <rect x="121" y="310" width="64" height="64" fill="#2ec5ff"/>
+    <polygon points="205,510 40,510 227,278" fill="url(#gTail)"/>
+  </symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top" aria-label="NovaSignal, torna su"><svg aria-hidden="true"><use href="#mark"/></svg>NovaSignal</a>
+    <nav class="nav-links" aria-label="Principale">
+      <a href="#servizi" data-i18n="nav.services">Servizi</a>
+      <a href="#lavori" data-i18n="nav.work">Lavori</a>
+      <a href="#metodo" data-i18n="nav.method">Metodo</a>
+      <a href="#prezzi" data-i18n="nav.pricing">Prezzi</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-r">
+      <a class="nav-mini" href="#prezzi" data-i18n="nav.pricing">Prezzi</a>
+      <button class="lang" id="langBtn" aria-label="Switch to English">EN</button>
+      <a class="btn btn-primary" href="#contatti"><span class="sq"></span>Start your project</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top" aria-label="NovaSignal">
+  <span class="anchor" id="servizi" aria-hidden="true"></span>
+  <div class="stick">
+    <canvas id="heroCanvas" aria-hidden="true"></canvas>
+    <div class="hero-shade"></div>
+
+    <div class="hero-copy hero-a" id="heroA">
+      <div class="wrap">
+        <p class="tag"><i style="--c:var(--ember)"></i>Design &amp; Technology Studio</p>
+        <h1 class="display" data-i18n="hero.h1" data-html><span class="line"><span>Costruiamo</span></span><span class="line"><span>il segnale</span></span><span class="line"><span>del tuo business.</span></span></h1>
+      </div>
+    </div>
+
+    <div class="hero-copy hero-b" id="heroB">
+      <div class="wrap">
+        <h2 class="h2" data-i18n="hero.h2">Siti, software, app e automazioni.</h2>
+        <p class="lead" data-i18n="hero.lead">Un solo team per strategia, design, sviluppo e crescita. Studio a Roma, clienti in tutto il mondo. Ti mostriamo un'anteprima gratuita prima che tu paghi.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="#contatti"><span class="sq"></span>Start your project</a>
+          <a class="btn btn-ghost" href="#prezzi" data-i18n="hero.prices">Vedi i prezzi</a>
+        </div>
+      </div>
+    </div>
+    <span class="signal" id="heroSignal"></span>
+
+    <div class="cue" id="cue" aria-hidden="true"><span data-i18n="hero.cue">Scorri</span><b></b></div>
+
+    <div class="portal" id="portal">
+      <div class="gx" id="gx"><video id="galaxyVid" muted playsinline loop preload="none" poster="assets/video/galaxy.jpg" data-src="assets/video/galaxy.mp4" data-poster-m="assets/video/galaxy-m.jpg" data-src-m="assets/video/galaxy-m.mp4" aria-hidden="true"></video></div>
+      <div class="veil" id="veil"></div>
+      <div class="mwrap">
+        <div class="wrap">
+          <p class="mtext" id="mtext" data-i18n="manifesto">Il sito è il primo segnale che mandi al mercato. Prima di una chiamata, prima di un preventivo, prima di una stretta di mano. Noi facciamo in modo che arrivi forte, chiaro e prima degli altri.</p>
+          <div class="mfoot" id="mfoot"><span class="rule"><span id="mrule"></span></span><span data-i18n="manifesto.sign">NovaSignal, Roma</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="svc-head" id="svcHead" aria-labelledby="svcTitle">
+      <div class="wrap">
+    <p class="tag"><i style="--c:var(--gold)"></i><span data-i18n="svc.tag">Cosa costruiamo</span></p>
+    <h2 class="h2" id="svcTitle" data-i18n="svc.h2">Quattro mondi, un solo studio.</h2>
+    <p class="lead" data-i18n="svc.lead">Ogni progetto parte dalla stessa domanda: cosa deve fare il tuo cliente dopo averti visto? Il resto è design e codice al servizio di quella risposta.</p>
+      </div>
+    </div>
+      <article class="world" style="--c:var(--ember)">
+        <div class="panel"><video class="manual" muted playsinline loop preload="none" poster="assets/video/planet.jpg" data-src="assets/video/planet.mp4" data-poster-m="assets/video/planet-m.jpg" data-src-m="assets/video/planet-m.mp4" aria-hidden="true"></video></div>
+        <div class="copy">
+        <p class="tag"><i style="--c:var(--ember)"></i><span data-i18n="s1.tag">Siti web, e-commerce e brand</span></p>
+        <h3 class="h2" data-i18n="s1.h">Un sito che lavora mentre dormi.</h3>
+        <p class="lead" data-i18n="s1.p">Siti vetrina, e-commerce e identità visive progettati da zero, veloci su ogni telefono e scritti per trasformare visite in richieste.</p>
+        <ul class="deliver" data-i18n="s1.list" data-html><li>Design su misura</li><li>Motion allo scroll</li><li>E-commerce e prenotazioni</li><li>Logo e identità</li><li>Testi e SEO</li><li>Multilingua</li></ul>
+        <a class="more" href="#prezzi" data-i18n="s1.more">Da €1.900</a>
+      </div>
+      </article>
+      <article class="world" style="--c:var(--gold)">
+        <div class="panel"><video class="manual" muted playsinline loop preload="none" poster="assets/video/corridor.jpg" data-src="assets/video/corridor.mp4" data-poster-m="assets/video/corridor-m.jpg" data-src-m="assets/video/corridor-m.mp4" aria-hidden="true"></video></div>
+        <div class="copy">
+        <p class="tag"><i style="--c:var(--gold)"></i><span data-i18n="s2.tag">Software e web app</span></p>
+        <h3 class="h2" data-i18n="s2.h">Il software che il tuo processo aspettava.</h3>
+        <p class="lead" data-i18n="s2.p">Gestionali, piattaforme SaaS, pannelli admin e portali clienti costruiti intorno a come lavori davvero, non intorno a un modello preconfezionato.</p>
+        <ul class="deliver" data-i18n="s2.list" data-html><li>Web app e SaaS</li><li>Pannelli admin</li><li>Database e API</li><li>Pagamenti e abbonamenti</li><li>Area clienti</li><li>Dashboard e report</li></ul>
+        <a class="more" href="#prezzi" data-i18n="s2.more">Vedi i pacchetti</a>
+      </div>
+      </article>
+      <article class="world" style="--c:var(--aqua)">
+        <div class="panel"><video class="manual" muted playsinline loop preload="none" poster="assets/video/grid.jpg" data-src="assets/video/grid.mp4" data-poster-m="assets/video/grid-m.jpg" data-src-m="assets/video/grid-m.mp4" aria-hidden="true"></video></div>
+        <div class="copy">
+        <p class="tag"><i style="--c:var(--aqua)"></i><span data-i18n="s3.tag">App mobile</span></p>
+        <h3 class="h2" data-i18n="s3.h">In tasca ai tuoi clienti.</h3>
+        <p class="lead" data-i18n="s3.p">App iOS e Android dal concept alla pubblicazione sugli store: prenotazioni, fidelizzazione, strumenti interni per il tuo team.</p>
+        <ul class="deliver" data-i18n="s3.list" data-html><li>iOS e Android</li><li>UX e prototipo</li><li>Notifiche push</li><li>Login e profili</li><li>Pubblicazione store</li><li>Manutenzione</li></ul>
+        <a class="more" href="#prezzi" data-i18n="s3.more">Vedi i pacchetti</a>
+      </div>
+      </article>
+      <article class="world" style="--c:var(--cyan)">
+        <div class="panel"><video class="manual" muted playsinline loop preload="none" poster="assets/video/nebula.jpg" data-src="assets/video/nebula.mp4" data-poster-m="assets/video/nebula-m.jpg" data-src-m="assets/video/nebula-m.mp4" aria-hidden="true"></video></div>
+        <div class="copy">
+        <p class="tag"><i style="--c:var(--cyan)"></i><span data-i18n="s4.tag">Automazioni e AI</span></p>
+        <h3 class="h2" data-i18n="s4.h">Meno lavoro ripetitivo, più tempo per vendere.</h3>
+        <p class="lead" data-i18n="s4.p">Colleghiamo sito, CRM, email, WhatsApp e calendario. Lead che arrivano già qualificati, preventivi che partono da soli, report che non devi più compilare.</p>
+        <ul class="deliver" data-i18n="s4.list" data-html><li>Flussi automatici</li><li>Assistenti AI</li><li>CRM e lead</li><li>Integrazioni WhatsApp</li><li>SEO continuativa</li><li>Campagne Ads</li></ul>
+        <a class="more" href="#prezzi" data-i18n="s4.more">Piani mensili</a>
+      </div>
+      </article>
+      <ol class="svc-nav" id="svcNav" aria-hidden="true">
+        <li style="--c:var(--ember)"><i></i><span data-i18n="n1">Siti e brand</span></li>
+        <li style="--c:var(--gold)"><i></i><span data-i18n="n2">Software</span></li>
+        <li style="--c:var(--aqua)"><i></i><span data-i18n="n3">App mobile</span></li>
+        <li style="--c:var(--cyan)"><i></i><span data-i18n="n4">Automazioni</span></li>
+      </ol>
+  </div>
+</section>
+
+
+<!-- ================= LAVORI ================= -->
+<section class="work" id="lavori" aria-labelledby="workTitle">
+  <div class="atmo" id="workAtmo" aria-hidden="true"><video muted playsinline loop preload="none" poster="assets/video/earth.jpg" data-src="assets/video/earth.mp4" data-poster-m="assets/video/earth-m.jpg" data-src-m="assets/video/earth-m.mp4"></video></div>
+  <div class="wrap">
+    <div class="work-top">
+      <div>
+        <p class="tag"><i style="--c:var(--aqua)"></i><span data-i18n="work.tag">Lavori recenti</span></p>
+        <h2 class="h2" id="workTitle" data-i18n="work.h2">Progetti già in orbita.</h2>
+      </div>
+      <div class="arrows">
+        <button id="prev" aria-label="Progetto precedente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button id="next" aria-label="Progetto successivo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+    <div class="slides" id="slides">
+      <div class="slides-track" id="slidesTrack">
+      <article class="slide" data-slide>
+        <!-- Metti uno screenshot in assets/work/aura.jpg (1600x1000): sostituisce il fallback in automatico -->
+        <!-- Aura invia "X-Frame-Options: SAMEORIGIN": finché resta, la card apre il sito in una nuova scheda. Dopo aver applicato per-aura-htaccess.txt metti data-frame="ok" qui sotto. -->
+        <div class="shot lock-l">
+          <img src="assets/work/aura.jpg" alt="Sito Aura Rome Tours" class="shot-img" decoding="async">
+          <div class="fallback" style="--c:var(--ember)"><span><i></i>aurarometours.it</span><b>Aura Rome Tours</b></div>
+          <a class="shot-open" href="https://aurarometours.it" target="_blank" rel="noopener" data-site="https://aurarometours.it" data-dom="aurarometours.it" data-frame="blocked"><span class="pill"><i style="--c:var(--ember)"></i><span data-i18n="work.explore">Naviga il sito</span></span></a>
+        </div>
+        <div class="meta lock-r">
+          <span class="count">01 / 02</span>
+          <h3 class="h3" data-i18n="w1.h">Tour privati in golf cart elettrico a Roma.</h3>
+          <p class="lead" data-i18n="w1.p">Sito vetrina e prenotazioni per un servizio premium: atmosfera cinematografica, percorso chiaro fino alla richiesta.</p>
+          <div class="chips" data-i18n="w1.chips" data-html><span>Sito web</span><span>Prenotazioni</span><span>Brand</span></div>
+          <a class="btn btn-ghost" href="https://aurarometours.it" target="_blank" rel="noopener" data-i18n="work.visit">Visita il sito</a>
+        </div>
+      </article>
+      <article class="slide" data-slide>
+        <!-- Metti uno screenshot in assets/work/moruzzi.jpg (1600x1000) -->
+        <div class="shot lock-l">
+          <img src="assets/work/moruzzi.jpg" alt="Sito Alessandro Moruzzi" class="shot-img" decoding="async">
+          <div class="fallback" style="--c:var(--cyan)"><span><i></i>alessandromoruzzi.com</span><b>Alessandro Moruzzi</b></div>
+          <a class="shot-open" href="https://alessandromoruzzi.com" target="_blank" rel="noopener" data-site="https://alessandromoruzzi.com" data-dom="alessandromoruzzi.com" data-frame="ok"><span class="pill"><i style="--c:var(--cyan)"></i><span data-i18n="work.explore">Naviga il sito</span></span></a>
+        </div>
+        <div class="meta lock-r">
+          <span class="count">02 / 02</span>
+          <h3 class="h3" data-i18n="w2.h">Portfolio 3D per un fotografo e graphic designer.</h3>
+          <p class="lead" data-i18n="w2.p">Una fotocamera istantanea in 3D che stampa le foto mentre scorri: il portfolio diventa un'esperienza da ricordare.</p>
+          <div class="chips" data-i18n="w2.chips" data-html><span>3D</span><span>Motion</span><span>Portfolio</span></div>
+          <a class="btn btn-ghost" href="https://alessandromoruzzi.com" target="_blank" rel="noopener" data-i18n="work.visit">Visita il sito</a>
+        </div>
+      </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= METODO ================= -->
+<section class="process" id="metodo" aria-labelledby="procTitle">
+  <div class="stick">
+    <div class="sand" id="sand" aria-hidden="true"><video id="sandVid" muted playsinline loop preload="none" poster="assets/video/sand.jpg" data-src="assets/video/sand.mp4" data-poster-m="assets/video/sand-m.jpg" data-src-m="assets/video/sand-m.mp4"></video></div>
+    <div class="shade"></div>
+    <div class="wrap">
+      <p class="tag"><i style="--c:var(--gold)"></i><span data-i18n="proc.tag">Metodo</span></p>
+      <h2 class="h2" id="procTitle" data-i18n="proc.h2">Dall'idea al lancio in tre settimane.</h2>
+      <div class="steps-wrap">
+      <span class="track" aria-hidden="true"><span class="fill" id="trackFill"></span></span>
+      <span class="dot" id="dot" aria-hidden="true"></span>
+      <ol class="steps" id="steps">
+        <li class="step on"><small data-i18n="p1.d">Giorni 1–3</small><b data-i18n="p1.h">Anteprima gratuita</b></li>
+        <li class="step"><small data-i18n="p2.d">Giorni 4–10</small><b data-i18n="p2.h">Strategia e contenuti</b></li>
+        <li class="step"><small data-i18n="p3.d">Giorni 11–18</small><b data-i18n="p3.h">Design su misura</b></li>
+        <li class="step"><small data-i18n="p4.d">In parallelo</small><b data-i18n="p4.h">Sviluppo e velocità</b></li>
+        <li class="step"><small data-i18n="p5.d">Lancio</small><b data-i18n="p5.h">Online, e non sei solo</b></li>
+      </ol>
+      </div>
+      <div class="step-detail" id="stepDetail" aria-live="polite">
+        <p class="on" data-i18n="p1.p">Ascoltiamo il progetto e ti mostriamo una prima direzione visiva. Paghi solo se ti convince.</p>
+        <p class="" data-i18n="p2.p">Struttura, testi, obiettivi di conversione. Se non hai materiale, lo prepariamo noi.</p>
+        <p class="" data-i18n="p3.p">Ogni schermata disegnata per il tuo brand, desktop e mobile, con le animazioni già pensate.</p>
+        <p class="" data-i18n="p4.p">Codice pulito, caricamento rapido, SEO tecnica e tracciamento delle conversioni.</p>
+        <p class="" data-i18n="p5.p">Dominio, Google Business e 30 giorni di modifiche incluse dopo la pubblicazione.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PREZZI ================= -->
+<section class="pricing" id="prezzi" aria-labelledby="priceTitle">
+  <div class="atmo" id="priceAtmo" aria-hidden="true"><div class="pin"><video muted playsinline loop preload="none" poster="assets/video/warp.jpg" data-src="assets/video/warp.mp4" data-poster-m="assets/video/warp-m.jpg" data-src-m="assets/video/warp-m.mp4"></video><span class="dim" id="priceDim"></span></div></div>
+  <div class="wrap">
+    <p class="tag"><i style="--c:var(--ember)"></i><span data-i18n="price.tag">Prezzi</span></p>
+    <h2 class="h2" id="priceTitle" data-i18n="price.h2">Prezzi chiari, prima di iniziare.</h2>
+    <p class="lead" style="margin-top:24px" data-i18n="price.lead">Anteprima gratuita, poi 50% per partire e saldo alla consegna. Dominio e sito restano tuoi.</p>
+
+    <div class="plans">
+      <div class="plan" style="--c:var(--ember)">
+        <h3>Signal</h3>
+        <div class="price">€1.900<small data-i18n="price.vat">+IVA</small></div>
+        <p data-i18n="pl1.p">Il sito su misura che presenta il tuo business come merita.</p>
+        <ul data-i18n="pl1.list" data-html><li>Fino a 6 pagine su misura</li><li>Animazioni premium</li><li>Testi e SEO locale</li><li>Dominio e hosting primo anno</li><li>30 giorni di modifiche</li></ul>
+        <a class="btn btn-ghost" href="#contatti" data-plan="Signal" data-i18n="price.cta">Scegli Signal</a>
+      </div>
+      <div class="plan pick" style="--c:var(--gold)">
+        <h3>Nova <em data-i18n="price.pick">Il più scelto</em></h3>
+        <div class="price">€4.900<small data-i18n="price.vat">+IVA</small></div>
+        <p data-i18n="pl2.p">Per chi vende online, prenota clienti o parla a più mercati.</p>
+        <ul data-i18n="pl2.list" data-html><li>E-commerce o prenotazioni</li><li>Multilingua</li><li>Motion e 3D allo scroll</li><li>Pagamenti, CRM, calendario</li><li>Tracciamento conversioni</li></ul>
+        <a class="btn btn-primary" href="#contatti" data-plan="Nova" data-i18n="price.cta2">Scegli Nova</a>
+      </div>
+      <div class="plan" style="--c:var(--cyan)">
+        <h3>Supernova</h3>
+        <div class="price"><span class="pre" data-i18n="price.from">da</span>€14.000<small data-i18n="price.vat">+IVA</small></div>
+        <p data-i18n="pl3.p">Software, web app e app mobile costruiti intorno al tuo processo.</p>
+        <ul data-i18n="pl3.list" data-html><li>Web app o SaaS su misura</li><li>App iOS e Android</li><li>Pannello admin e database</li><li>Automazioni e AI</li><li>Roadmap evolutiva</li></ul>
+        <a class="btn btn-ghost" href="#contatti" data-plan="Supernova" data-i18n="price.cta3">Parliamone</a>
+      </div>
+    </div>
+
+    <div class="monthly">
+      <h3 data-i18n="m.h">Piani mensili</h3>
+      <div class="mrow"><b>Orbit</b><span data-i18n="m1">SEO continuativa: contenuti, ottimizzazione tecnica e report mensile.</span><strong data-i18n="m1p">€490/mese</strong></div>
+      <div class="mrow"><b>Pulse</b><span data-i18n="m2">Gestione campagne Google e Meta Ads, con report sui risultati.</span><strong data-i18n="m2p">€590/mese</strong></div>
+      <div class="mrow"><b>Care</b><span data-i18n="m3">Hosting, backup, aggiornamenti e piccole modifiche.</span><strong data-i18n="m3p">€79/mese</strong></div>
+    </div>
+    <p class="small vat" data-i18n="price.note">Tutti i prezzi sono IVA esclusa.</p>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="faq" id="faq" aria-labelledby="faqTitle">
+  <div class="wrap faq-grid">
+    <div class="faq-side">
+      <p class="tag"><i style="--c:var(--aqua)"></i>FAQ</p>
+      <h2 class="h2" id="faqTitle" data-i18n="faq.h2">Domande prima di partire.</h2>
+      <figure class="faq-window" id="faqWindow" aria-hidden="true">
+        <video muted playsinline loop preload="none" poster="assets/video/station.jpg" data-src="assets/video/station.mp4"></video>
+        <figcaption><i></i><span data-i18n="faq.cap">Risposta entro 24 ore</span></figcaption>
+      </figure>
+    </div>
+    <div id="faqList" data-i18n="faq.list" data-html>
+      <details><summary>Quanto tempo serve?</summary><p>Per un sito Signal servono in media 2–3 settimane dall'anteprima al lancio. Software e app hanno una roadmap dedicata che definiamo insieme.</p></details>
+      <details><summary>Non ho testi né foto. È un problema?</summary><p>No. Scriviamo noi i testi e ti guidiamo su foto e video, oppure usiamo materiale professionale adatto al tuo brand.</p></details>
+      <details><summary>Come funziona l'anteprima gratuita?</summary><p>Ti mostriamo una prima direzione visiva del progetto prima di qualsiasi pagamento. Se ti convince, versi il 50% e partiamo; il saldo arriva alla consegna.</p></details>
+      <details><summary>Dominio e sito di chi sono?</summary><p>Tuoi. Dominio, contenuti e sito sono intestati a te, senza vincoli.</p></details>
+      <details><summary>Cosa succede dopo il lancio?</summary><p>Hai 30 giorni di modifiche incluse. Poi puoi scegliere il piano Care o chiederci interventi quando servono.</p></details>
+      <details><summary>Perché non un template economico?</summary><p>Perché un template sembra quello che è. Un sito su misura è più veloce, si distingue dai concorrenti ed è costruito per farti contattare.</p></details>
+      <details><summary>Lavorate anche fuori dall'Italia?</summary><p>Sì. Siamo a Roma e lavoriamo da remoto con clienti in Europa, Regno Unito, Stati Uniti ed Emirati, in italiano e in inglese.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTATTI ================= -->
+<section class="contact" id="contatti" aria-labelledby="ctaTitle">
+  <div class="bg"><video muted playsinline loop preload="none" poster="assets/video/grid.jpg" data-src="assets/video/grid.mp4" data-poster-m="assets/video/grid-m.jpg" data-src-m="assets/video/grid-m.mp4" aria-hidden="true"></video></div>
+  <div class="wrap">
+    <div>
+      <p class="tag"><i style="--c:var(--ember)"></i>Start your project</p>
+      <h2 class="h2" id="ctaTitle" data-i18n="cta.h2">Raccontaci il progetto.</h2>
+      <p class="lead" data-i18n="cta.lead">Ti rispondiamo entro 24 ore lavorative con una proposta e la data della tua anteprima gratuita.</p>
+      <div class="direct">
+        <a href="https://wa.me/393206891014" target="_blank" rel="noopener">WhatsApp +39 320 689 1014</a>
+        <a href="mailto:studio@novasignal.it">studio@novasignal.it</a>
+      </div>
+    </div>
+    <form id="leadForm" novalidate>
+      <div>
+        <label for="fName" data-i18n="f.name">Nome e azienda</label>
+        <input id="fName" name="name" autocomplete="name" required>
+      </div>
+      <div>
+        <span class="sr" id="typeLbl" data-i18n="f.type">Cosa ti serve</span>
+        <label aria-hidden="true" data-i18n="f.type">Cosa ti serve</label>
+        <div class="pick" role="group" aria-labelledby="typeLbl">
+          <input type="radio" name="type" id="t1" value="Sito web" checked><label for="t1" data-i18n="f.t1">Sito web</label>
+          <input type="radio" name="type" id="t2" value="E-commerce"><label for="t2">E-commerce</label>
+          <input type="radio" name="type" id="t3" value="Software / web app"><label for="t3" data-i18n="f.t3">Software</label>
+          <input type="radio" name="type" id="t4" value="App mobile"><label for="t4" data-i18n="f.t4">App mobile</label>
+          <input type="radio" name="type" id="t5" value="Automazioni"><label for="t5" data-i18n="f.t5">Automazioni</label>
+        </div>
+      </div>
+      <div>
+        <label for="fMsg" data-i18n="f.msg">Due righe sul progetto</label>
+        <textarea id="fMsg" name="msg" rows="3" data-lenis-prevent></textarea>
+      </div>
+      <p class="err" id="fErr" role="alert"></p>
+      <a class="btn btn-primary" id="waSend" href="https://wa.me/393206891014" target="_blank" rel="noopener"><span class="sq"></span><span data-i18n="f.send">Invia su WhatsApp</span></a>
+      <p class="form-note" data-i18n="f.note">Si apre WhatsApp con il messaggio già scritto. Preferisci l'email? Scrivi a studio@novasignal.it</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="#top"><svg aria-hidden="true"><use href="#mark"/></svg>NovaSignal</a>
+        <p data-i18n="foot.p">Design &amp; Technology Studio a Roma. Clienti in Italia, Europa, Regno Unito, Stati Uniti ed Emirati.</p>
+      </div>
+      <div>
+        <h4 data-i18n="foot.studio">Studio</h4>
+        <ul><li><a href="#servizi" data-i18n="nav.services">Servizi</a></li><li><a href="#lavori" data-i18n="nav.work">Lavori</a></li><li><a href="#prezzi" data-i18n="nav.pricing">Prezzi</a></li><li><a href="#faq">FAQ</a></li></ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot.contact">Contatti</h4>
+        <ul><li><a href="https://wa.me/393206891014" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="mailto:studio@novasignal.it">studio@novasignal.it</a></li><li><a href="/privacy" data-i18n="foot.privacy">Privacy e cookie</a></li></ul>
+      </div>
+    </div>
+    <div class="giant" aria-hidden="true"><video muted playsinline loop preload="none" poster="assets/video/galaxy.jpg" data-src="assets/video/galaxy.mp4" data-poster-m="assets/video/galaxy-m.jpg" data-src-m="assets/video/galaxy-m.mp4"></video><span>NovaSignal</span></div>
+    <div class="legal"><span>© 2026 NovaSignal</span><span data-i18n="foot.made">Progettato e sviluppato a Roma</span></div>
+  </div>
+</footer>
+
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="viewerDom" hidden>
+  <div class="viewer-bar">
+    <span class="viewer-dom" id="viewerDom"></span>
+    <div class="viewer-actions">
+      <a class="viewer-btn" id="viewerOpen" href="#" target="_blank" rel="noopener"><span class="viewer-open-txt" data-i18n="viewer.open">Apri in una nuova scheda</span><span aria-hidden="true" style="margin-left:6px">↗</span></a>
+      <button class="viewer-btn viewer-close" id="viewerClose" data-i18n="viewer.close">Chiudi</button>
+    </div>
+  </div>
+  <div class="viewer-frame" id="viewerFrame"><span class="viewer-wait"><i></i><span data-i18n="viewer.wait">Carico il sito</span></span></div>
+</div>
+
+<a class="wa off" id="waFab" href="https://wa.me/393206891014" target="_blank" rel="noopener" aria-label="Scrivici su WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+  WhatsApp
+</a>
+
+<script src="assets/js/gsap.min.js"></script>
+<script src="assets/js/ScrollTrigger.min.js"></script>
+<script src="assets/js/lenis.min.js"></script>
+<script>
+(() => {
+'use strict';
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const MOBILE = matchMedia('(max-width: 760px)').matches;
+// portrait screens get assets cut natively in 9:16 from the 4K masters
+const PORTRAIT = matchMedia('(max-aspect-ratio: 4/5)').matches;
+if (PORTRAIT) document.querySelectorAll('video[data-src-m]').forEach(v => { v.dataset.src = v.dataset.srcM; v.poster = v.dataset.posterM; });
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const range = (p, a, b) => clamp((p - a) / (b - a));
+const ease = t => 1 - Math.pow(1 - t, 3);
+const easeIO = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+/* ======================= i18n ======================= */
+const EN = {
+  'skip':'Skip to content',
+  'nav.services':'Services','nav.work':'Work','nav.method':'Process','nav.pricing':'Pricing',
+  'hero.h1':'<span class="line"><span>We build</span></span><span class="line"><span>the signal</span></span><span class="line"><span>of your business.</span></span>',
+  'hero.h2':'Websites, software, apps and automation.',
+  'hero.lead':'One team for strategy, design, engineering and growth. Based in Rome, working worldwide. You see a free preview before you pay.',
+  'hero.prices':'See pricing','hero.cue':'Scroll',
+  'manifesto':'Your website is the first signal you send to the market. Before a call, before a quote, before a handshake. We make sure it lands loud, clear and before anyone else.',
+  'manifesto.sign':'NovaSignal, Rome',
+  'svc.tag':'What we build','svc.h2':'Four worlds, one studio.',
+  'svc.lead':'Every project starts with one question: what should your customer do after seeing you? Everything else is design and code serving that answer.',
+  's1.tag':'Websites, e-commerce and brand','s1.h':'A website that works while you sleep.',
+  's1.p':'Websites, online stores and visual identities designed from scratch, fast on every phone and written to turn visits into enquiries.',
+  's1.list':'<li>Custom design</li><li>Scroll motion</li><li>E-commerce and booking</li><li>Logo and identity</li><li>Copy and SEO</li><li>Multilingual</li>','s1.more':'From €1,900',
+  's2.tag':'Software and web apps','s2.h':'The software your workflow has been waiting for.',
+  's2.p':'Management tools, SaaS platforms, admin panels and client portals built around how you actually work, not around a boxed template.',
+  's2.list':'<li>Web apps and SaaS</li><li>Admin panels</li><li>Databases and APIs</li><li>Payments and subscriptions</li><li>Client area</li><li>Dashboards and reports</li>','s2.more':'See packages',
+  's3.tag':'Mobile apps','s3.h':'In your customers’ pocket.',
+  's3.p':'iOS and Android apps from concept to store release: bookings, loyalty, internal tools for your team.',
+  's3.list':'<li>iOS and Android</li><li>UX and prototype</li><li>Push notifications</li><li>Login and profiles</li><li>Store release</li><li>Maintenance</li>','s3.more':'See packages',
+  's4.tag':'Automation and AI','s4.h':'Less busywork, more time to sell.',
+  's4.p':'We connect your site, CRM, email, WhatsApp and calendar. Leads arrive qualified, quotes go out on their own, reports fill themselves.',
+  's4.list':'<li>Automated workflows</li><li>AI assistants</li><li>CRM and leads</li><li>WhatsApp integrations</li><li>Ongoing SEO</li><li>Ad campaigns</li>','s4.more':'Monthly plans',
+  'n1':'Sites and brand','n2':'Software','n3':'Mobile apps','n4':'Automation',
+  'work.explore':'Explore the site','viewer.open':'Open in a new tab','viewer.close':'Close','viewer.wait':'Loading the site',
+  'work.tag':'Recent work','work.h2':'Projects already in orbit.','work.visit':'Visit the site',
+  'w1.h':'Private electric golf cart tours in Rome.','w1.p':'Showcase and booking site for a premium service: cinematic atmosphere, a clear path to the enquiry.','w1.chips':'<span>Website</span><span>Booking</span><span>Brand</span>',
+  'w2.h':'A 3D portfolio for a photographer and graphic designer.','w2.p':'A 3D instant camera that prints photos as you scroll: the portfolio becomes an experience people remember.','w2.chips':'<span>3D</span><span>Motion</span><span>Portfolio</span>',
+  'proc.tag':'Process','proc.h2':'From idea to launch in three weeks.',
+  'p1.d':'Days 1–3','p1.h':'Free preview','p1.p':'We listen to your project and show you a first visual direction. You only pay if you love it.',
+  'p2.d':'Days 4–10','p2.h':'Strategy and content','p2.p':'Structure, copy, conversion goals. No material yet? We prepare it.',
+  'p3.d':'Days 11–18','p3.h':'Custom design','p3.p':'Every screen designed for your brand, desktop and mobile, with motion planned from the start.',
+  'p4.d':'In parallel','p4.h':'Engineering and speed','p4.p':'Clean code, fast loading, technical SEO and conversion tracking.',
+  'p5.d':'Launch','p5.h':'Live, and not alone','p5.p':'Domain, Google Business and 30 days of changes included after launch.',
+  'price.tag':'Pricing','price.h2':'Clear pricing, before we start.','price.lead':'Free preview, then 50% to start and the balance on delivery. Your domain and site stay yours.',
+  'price.vat':'+VAT','price.pick':'Most chosen','price.from':'from','price.cta':'Choose Signal','price.cta2':'Choose Nova','price.cta3':'Let’s talk',
+  'pl1.p':'The custom website that presents your business the way it deserves.','pl1.list':'<li>Up to 6 custom pages</li><li>Premium animation</li><li>Copy and local SEO</li><li>First-year domain and hosting</li><li>30 days of changes</li>',
+  'pl2.p':'For brands that sell online, take bookings or speak to several markets.','pl2.list':'<li>E-commerce or booking</li><li>Multilingual</li><li>Scroll motion and 3D</li><li>Payments, CRM, calendar</li><li>Conversion tracking</li>',
+  'pl3.p':'Software, web apps and mobile apps built around your process.','pl3.list':'<li>Custom web app or SaaS</li><li>iOS and Android app</li><li>Admin panel and database</li><li>Automation and AI</li><li>Ongoing roadmap</li>',
+  'm.h':'Monthly plans','m1':'Ongoing SEO: content, technical optimisation and a monthly report.','m1p':'€490/mo','m2':'Google and Meta Ads campaign management, with results reporting.','m2p':'€590/mo','m3':'Hosting, backups, updates and small changes.','m3p':'€79/mo',
+  'price.note':'All prices exclude VAT.',
+  'faq.h2':'Questions before we start.','faq.cap':'Reply within 24 hours',
+  'faq.list':'<details><summary>How long does it take?</summary><p>A Signal website takes 2–3 weeks on average from preview to launch. Software and apps get a dedicated roadmap we define together.</p></details><details><summary>I have no copy or photos. Is that a problem?</summary><p>No. We write the copy and guide you on photo and video, or use professional material that fits your brand.</p></details><details><summary>How does the free preview work?</summary><p>We show you a first visual direction before any payment. If you like it, you pay 50% and we start; the balance is due on delivery.</p></details><details><summary>Who owns the domain and the site?</summary><p>You do. Domain, content and site are in your name, with no lock-in.</p></details><details><summary>What happens after launch?</summary><p>You get 30 days of changes included. After that you can choose the Care plan or ask us for work when you need it.</p></details><details><summary>Why not a cheap template?</summary><p>Because a template looks like one. A custom site is faster, stands apart from competitors and is built to get you contacted.</p></details><details><summary>Do you work outside Italy?</summary><p>Yes. We are based in Rome and work remotely with clients in Europe, the UK, the US and the UAE, in English and Italian.</p></details>',
+  'cta.h2':'Tell us about your project.','cta.lead':'We reply within 24 business hours with a proposal and the date of your free preview.',
+  'f.name':'Name and company','f.type':'What you need','f.t1':'Website','f.t3':'Software','f.t4':'Mobile app','f.t5':'Automation','f.msg':'A few lines about the project','f.send':'Send on WhatsApp',
+  'f.note':'WhatsApp opens with your message ready. Prefer email? Write to studio@novasignal.it','f.err':'Add your name so we know who to reply to.',
+  'foot.p':'Design & Technology Studio in Rome. Clients in Italy, Europe, the UK, the US and the UAE.','foot.studio':'Studio','foot.contact':'Contact','foot.privacy':'Privacy and cookies','foot.made':'Designed and built in Rome'
+};
+const IT = {};
+$$('[data-i18n]').forEach(el => { const k = el.dataset.i18n; if (!(k in IT)) IT[k] = el.hasAttribute('data-html') || /<\w/.test(EN[k] || '') ? el.innerHTML : el.textContent; });
+IT['f.err'] = 'Inserisci il tuo nome così sappiamo a chi rispondere.';
+let lang = 'it';
+const relayout = [];
+function setLang(l) {
+  lang = l; const dict = l === 'en' ? EN : IT;
+  $$('[data-i18n]').forEach(el => { const v = dict[el.dataset.i18n]; if (v == null) return; if (/<\w/.test(v)) el.innerHTML = v; else el.textContent = v; });
+  document.documentElement.lang = l;
+  const b = $('#langBtn'); b.textContent = l === 'en' ? 'IT' : 'EN'; b.setAttribute('aria-label', l === 'en' ? 'Passa all’italiano' : 'Switch to English');
+  splitWords($('#mtext'));
+  relayout.forEach(f => f());
+  try { localStorage.setItem('ns-lang', l); } catch (e) {}
+  if (window.ScrollTrigger) ScrollTrigger.refresh();
+}
+function splitWords(el) { el.innerHTML = el.textContent.trim().split(/\s+/).map(w => `<span class="w">${w}</span>`).join(' '); }
+splitWords($('#mtext'));
+let saved = null; try { saved = localStorage.getItem('ns-lang'); } catch (e) {}
+const qp = new URLSearchParams(location.search).get('lang');
+const initial = qp || saved || ((navigator.language || 'it').startsWith('it') ? 'it' : 'en');
+if (initial === 'en') setLang('en');
+$('#langBtn').addEventListener('click', () => setLang(lang === 'it' ? 'en' : 'it'));
+
+/* ======================= frame sequences ======================= */
+function Sequence(canvas, { path, count, pad = 3, ext = '.webp', step = 1 }) {
+  const ctx = canvas.getContext('2d', { alpha: false });
+  ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
+  const idx = []; for (let i = 1; i <= count; i += step) idx.push(i);
+  const imgs = new Array(idx.length); const ok = new Array(idx.length).fill(false);
+  let loaded = 0, started = false, current = 0, w = 0, h = 0;
+  const listeners = [];
+  function resize() {
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    const nw = canvas.clientWidth, nh = canvas.clientHeight;
+    if (nw === w && nh === h && canvas.width) return;
+    w = nw; h = nh;
+    canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+    ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
+    draw(current, true);
+  }
+  function nearest(i) {
+    if (ok[i]) return i;
+    for (let d = 1; d < idx.length; d++) { if (ok[i - d]) return i - d; if (ok[i + d]) return i + d; }
+    return -1;
+  }
+  let lastDrawn = -1;
+  function draw(i, force) {
+    current = i; const n = nearest(i); if (n < 0) return;
+    if (n === lastDrawn && !force) return; lastDrawn = n;
+    const img = imgs[n]; const cw = canvas.width, ch = canvas.height;
+    const s = Math.max(cw / img.naturalWidth, ch / img.naturalHeight);
+    const dw = img.naturalWidth * s, dh = img.naturalHeight * s;
+    ctx.drawImage(img, (cw - dw) / 2, (ch - dh) / 2, dw, dh);
+  }
+  function load() {
+    if (started) return Promise.resolve(); started = true;
+    // priority order: coarse pass first (every 8th), then fill the gaps
+    const order = []; const seen = new Set();
+    [8, 4, 2, 1].forEach(st => { for (let i = 0; i < idx.length; i += st) if (!seen.has(i)) { seen.add(i); order.push(i); } });
+    let p = 0; const PAR = 6;
+    return new Promise(res => {
+      const next = () => {
+        if (p >= order.length) return; const i = order[p++];
+        const img = new Image(); img.decoding = 'async';
+        img.onload = () => { ok[i] = true; imgs[i] = img; loaded++; listeners.forEach(f => f(loaded / idx.length)); if (Math.abs(i - current) < 3 || lastDrawn < 0) draw(current, true); if (loaded === idx.length) res(); next(); };
+        img.onerror = () => { loaded++; if (loaded === idx.length) res(); next(); };
+        img.src = `${path}${String(idx[i]).padStart(pad, '0')}${ext}`;
+      };
+      for (let k = 0; k < PAR; k++) next();
+    });
+  }
+  addEventListener('resize', resize);
+  return { resize, load, onProgress: f => listeners.push(f), set: p => draw(Math.round(clamp(p) * (idx.length - 1))), get length() { return idx.length; } };
+}
+
+const hero = PORTRAIT ? Sequence($('#heroCanvas'), { path: 'assets/hero-m/f', count: 160 }) : Sequence($('#heroCanvas'), { path: 'assets/hero/f', count: 240 });
+hero.resize();
+
+/* ======================= preloader ======================= */
+const loader = $('#loader'), bar = $('#loadBar'), pct = $('#loadPct');
+let shown = 0, done = false;
+function finishLoad() {
+  if (done) return; done = true;
+  document.documentElement.classList.add('loaded');
+  if (RM) { loader.remove(); return; }
+  gsap.timeline()
+    .to(bar, { scaleX: 1, duration: .35, ease: 'power2.out' })
+    .to(loader, { clipPath: 'inset(0 0 100% 0)', duration: 1, ease: 'expo.inOut' }, '+=.1')
+    .from('.hero-a .line > span', { yPercent: 110, duration: 1.2, stagger: .08, ease: 'expo.out' }, '-=.45')
+    .from('.hero-a .tag, .cue, .nav', { opacity: 0, y: 12, duration: .8, stagger: .06, ease: 'power3.out' }, '-=.9')
+    .add(() => loader.remove());
+}
+hero.onProgress(f => {
+  const t = Math.min(1, f / 0.3); // first 30% (coarse pass) is enough to start
+  if (t > shown) { shown = t; bar.style.transform = `scaleX(${t})`; pct.textContent = Math.round(t * 100); }
+  if (t >= 1) finishLoad();
+});
+hero.load();
+setTimeout(finishLoad, 6000);
+
+/* ======================= videos ======================= */
+// generic: play only while in view (contact background)
+const vio = new IntersectionObserver(es => es.forEach(e => want(e.target, e.isIntersecting)), { rootMargin: '25% 0px' });
+$$('video[data-src]:not(.manual):not(#galaxyVid)').forEach(v => vio.observe(v));
+// scroll-staged videos are driven by their scene
+function want(v, on) {
+  if (on) { if (!v.src) { v.preload = 'auto'; v.src = v.dataset.src; } if (!RM && v.paused) v.play().catch(() => {}); }
+  else if (!v.paused) v.pause();
+}
+function prime(v) { if (!v.src) { v.preload = 'auto'; v.src = v.dataset.src; } }
+// a square that grows out of nothing, then opens into the full frame (brand verb: Expand)
+function squareInset(x) {
+  if (x <= 0) return 'inset(50% 50% 50% 50% round 24px)';
+  if (x >= 1) return 'inset(0px 0px 0px 0px round 0px)';
+  const g = Math.min(1, x / .2), grow = g * g * (3 - 2 * g);          // the tile swells in softly, no pop
+  const half = Math.min(innerWidth, innerHeight) * .1 * (1 - x) * grow;
+  const k = (1 - x) * 50, r = 24 * Math.pow(1 - x, 1.4);           // corners relax as it fills the screen
+  return `inset(calc(${k}% - ${half}px) calc(${k}% - ${half}px) calc(${k}% - ${half}px) calc(${k}% - ${half}px) round ${r}px)`;
+}
+const easeSine = t => -(Math.cos(Math.PI * t) - 1) / 2;
+
+
+/* ======================= reduced motion: static and done ======================= */
+if (RM) {
+  hero.set(.72);
+  $$('.mtext .w').forEach(w => w.style.opacity = 1);
+  $$('.world .copy').forEach(c => { c.style.opacity = 1; c.style.visibility = 'visible'; });
+  setupCommon();
+  return;
+}
+
+/* ======================= smooth scroll ======================= */
+gsap.registerPlugin(ScrollTrigger);
+// touch: the page follows the finger 1:1, then glides with a short, damped inertia (no flings)
+const TOUCH = matchMedia('(hover: none) and (pointer: coarse)').matches;
+const INERTIA = 22;
+ScrollTrigger.config({ ignoreMobileResize: true });
+const lenis = new Lenis({ lerp: .085, smoothWheel: true, syncTouch: TOUCH, syncTouchLerp: .065, touchInertiaMultiplier: INERTIA });
+lenis.on('scroll', ScrollTrigger.update);
+gsap.ticker.add(t => lenis.raf(t * 1000));
+gsap.ticker.lagSmoothing(0);
+window.__lenis = lenis;
+
+/* ======================= STAGE 1: orbit → portal → galaxy manifesto ======================= */
+const heroA = $('#heroA'), heroB = $('#heroB'), portal = $('#portal'), cue = $('#cue'), sig = $('#heroSignal');
+const heroCv = $('#heroCanvas'), gx = $('#gx'), gvid = $('#galaxyVid'), veil = $('#veil'), mfoot = $('#mfoot'), mrule = $('#mrule'), mwrap = $('.mwrap'), svcHead = $('#svcHead');
+const worlds = $$('.world'), navItems = $$('#svcNav li'), svcNav = $('#svcNav');
+const W = worlds.map(w => ({ panel: $('.panel', w), media: $('video', w), copy: $('.copy', w) }));
+// one continuous scene: 540vh of orbit + galaxy, then 500vh of the four worlds
+const A = 540 / 1040;
+const anchor = $('#servizi');
+const placeAnchor = () => { const h = $('.hero'); anchor.style.top = ((A + .1 * (1 - A)) * (h.offsetHeight - innerHeight)) + 'px'; };
+placeAnchor(); ScrollTrigger.addEventListener('refresh', placeAnchor);
+// scenes render from a damped progress: the image eases toward where the finger is, never jumps
+const TAU = TOUCH ? 150 : 90;
+function damped(vars, render) {
+  const s = { target: 0, cur: 0, init: false, dirty: true };
+  s.st = ScrollTrigger.create(Object.assign({}, vars, {
+    onUpdate(st) { s.target = st.progress; },
+    onRefresh(st) { s.target = st.progress; if (!s.init) { s.cur = s.target; s.init = true; } s.dirty = true; }
+  }));
+  gsap.ticker.add((time, dt) => {
+    const d = s.target - s.cur;
+    if (Math.abs(d) < 1e-5 && !s.dirty) return;
+    s.cur = Math.abs(d) < 1e-5 ? s.target : s.cur + d * (1 - Math.exp(-dt / TAU));
+    s.dirty = false; render(s.cur);
+  });
+  return s;
+}
+const S1 = damped({ trigger: '.hero', start: 'top top', end: 'bottom bottom' }, P => {
+    const p = range(P, 0, A), p2 = range(P, A, 1);
+    // the orbit keeps turning until the window is fully open
+    hero.set(range(p, 0, .63));
+
+    // Split: the headline parts ways
+    const s = ease(range(p, .05, .16));
+    $$('.line', heroA).forEach((l, i, a) => {
+      const dir = i - (a.length - 1) / 2;
+      l.firstElementChild.style.transform = `translate3d(${dir * s * 18}vw, ${-s * 30}px, 0)`;
+      l.style.opacity = 1 - s;
+    });
+    $('.tag', heroA).style.opacity = 1 - s;
+    heroA.style.visibility = s >= 1 ? 'hidden' : 'visible';
+    cue.style.opacity = 1 - range(p, .01, .05);
+
+    // Reveal: a signal line sweeps in the offer
+    const r = range(p, .2, .28), out = range(p, .42, .48);
+    sig.style.transform = `scaleX(${ease(r)})`; sig.style.opacity = 1 - out;
+    const bo = r > 0 ? 1 - out : 0;
+    heroB.style.opacity = bo; heroB.style.visibility = bo > .01 ? 'visible' : 'hidden';
+    heroB.style.clipPath = `inset(0 ${100 - easeIO(r) * 100}% 0 0)`;
+    heroB.style.transform = `translateY(${-out * 40}px)`;
+
+    // Expand: a square opens onto deep space while the camera pushes in
+    const x = easeIO(range(p, .5, .63));
+    portal.style.clipPath = squareInset(x);
+    heroCv.style.transform = `scale(${1 + x * .16})`;
+    heroCv.style.opacity = 1 - x * .6;
+    const q = range(p, .63, 1);
+    gx.style.transform = `scale(${1.34 - x * .26 - q * .08}) rotate(${-2 + q * 5}deg)`;
+    if (p > .3) prime(gvid);
+
+    // Manifesto: words light up over the living galaxy
+    veil.style.opacity = range(p, .6, .67);
+    const words = $$('.mtext .w'); const n = words.length;
+    const base = range(p, .6, .66) * .14;
+    const rp = range(p, .65, .86) * (n + 3);
+    const fo = range(p, .92, 1);
+    words.forEach((w, i) => { w.style.opacity = (base + (1 - base) * clamp(rp - i)) * (1 - fo); });
+    mfoot.style.opacity = range(p, .84, .88) * (1 - fo);
+    mwrap.style.transform = `translateY(${-fo * 60}px)`;
+    mwrap.style.visibility = fo >= 1 ? 'hidden' : 'visible';
+    mrule.style.transform = `scaleX(${range(p, .86, .92)})`;
+
+    // ---- the four worlds, opening over the galaxy ----
+    const hi = range(p2, .01, .07), ho = range(p2, .12, .17), ho_ = hi * (1 - ho);
+    svcHead.style.opacity = ho_; svcHead.style.visibility = ho_ > .01 ? 'visible' : 'hidden';
+    svcHead.style.transform = `translateY(${(1 - ease(hi)) * 40 - ho * 50}px)`;
+    const nW = W.length, t = range(p2, .17, .98) * nW;
+    let firstOpen = 0;
+    W.forEach((w, i) => {
+      const local = t - i;
+      const e = easeSine(range(local, 0, .55));
+      if (i === 0) firstOpen = e;
+      w.panel.style.clipPath = squareInset(e);
+      w.media.style.transform = `scale(${1.2 - e * .2})`;
+      const inn = range(local, .46, .62), out = i < nW - 1 ? range(local, .93, 1) : 0;
+      const o = inn * (1 - out);
+      w.copy.style.opacity = o;
+      w.copy.style.visibility = o > .01 ? 'visible' : 'hidden';
+      w.copy.style.transform = `translateY(${(1 - ease(inn)) * 36 - out * 24}px)`;
+      if (local > -.3) prime(w.media);
+      want(w.media, local > -.05 && local < 1.08 && P < 1);
+    });
+    const active = Math.min(nW - 1, Math.max(0, Math.floor(t)));
+    navItems.forEach((li, i) => li.classList.toggle('on', i === active));
+    svcNav.style.opacity = range(p2, .2, .26) * (1 - range(p2, .975, .995));
+
+    // galaxy plays from just before the window opens until the first world covers it
+    want(gvid, p > .4 && firstOpen < 1);
+});
+relayout.push(() => { S1.dirty = true; });
+
+/* ======================= WORK: lock in ======================= */
+ScrollTrigger.create({
+  trigger: '#slides', start: 'top 95%', end: 'top 45%', scrub: true,
+  onUpdate(st) {
+    const e = ease(st.progress);
+    $$('.slide.is-current .lock-l').forEach(el => el.style.transform = `translateX(${-(1 - e) * 12}vw)`);
+    $$('.slide.is-current .lock-r').forEach(el => { el.style.transform = `translateX(${(1 - e) * 12}vw)`; el.style.opacity = .2 + .8 * e; });
+  }
+});
+
+/* ======================= ATMOSPHERES ======================= */
+const workAtmo = $('#workAtmo'), priceVid = $('#priceAtmo video'), faqWin = $('#faqWindow');
+faqWin.style.clipPath = squareInset(0);
+ScrollTrigger.create({ trigger: '#lavori', start: 'top bottom', end: 'bottom top', scrub: true,
+  onUpdate(st) { workAtmo.style.transform = `translateY(${(st.progress - .5) * 16}%)`; } });
+ScrollTrigger.create({ trigger: '#prezzi', start: 'top bottom', end: 'top -60%', scrub: true,
+  onUpdate(st) { priceVid.style.transform = `scale(${1.25 - st.progress * .25})`; } });
+const priceDim = $('#priceDim');
+ScrollTrigger.create({ trigger: '#prezzi', start: 'top top', end: 'bottom bottom', scrub: true,
+  onUpdate(st) { priceDim.style.background = `radial-gradient(ellipse at 30% 30%,rgba(0,0,0,.5),rgba(0,0,0,.2) 70%),rgba(0,0,0,${.25 + st.progress * .3})`; } });
+priceVid.addEventListener('loadedmetadata', () => { priceVid.playbackRate = .75; });
+ScrollTrigger.create({ trigger: faqWin, start: 'top 95%', end: 'top 45%', scrub: true,
+  onUpdate(st) { faqWin.style.clipPath = squareInset(easeIO(st.progress)); } });
+
+/* ======================= PROCESS: gold scrub + transmit ======================= */
+const stepsEl = $$('.step'), dot = $('#dot'), fill = $('#trackFill'), sand = $('#sand'), details = $$('#stepDetail p');
+let activeStep = 0;
+const S2 = damped({ trigger: '.process', start: 'top top', end: 'bottom bottom' }, p => {
+    // the sand flows on its own (real-time slow motion); scroll only breathes it a little
+    sand.style.transform = `scale(${1.08 - p * .08}) translate3d(0, ${(p - .5) * -3}%, 0)`;
+    const t = range(p, .08, .92), n = stepsEl.length;
+    const pos = t * (n - 1);                                   // continuous position along the steps
+    const i0 = Math.floor(pos), i1 = Math.min(n - 1, i0 + 1), f = pos - i0;
+    const y = stepsEl[i0].offsetTop + (stepsEl[i1].offsetTop - stepsEl[i0].offsetTop) * f;
+    dot.style.transform = `translate3d(0, ${y}px, 0)`;         // Transmit: the signal travels the line
+    fill.style.transform = `scaleY(${clamp(y / Math.max(1, stepsEl[n - 1].offsetTop))})`;
+    const a = Math.min(n - 1, Math.round(pos));
+    if (a !== activeStep) {
+      activeStep = a;
+      stepsEl.forEach((s, i) => s.classList.toggle('on', i === a));
+      details.forEach((d, i) => d.classList.toggle('on', i === a));
+    }
+});
+
+/* ======================= touch: no half-states ======================= */
+// If the finger lets go in the middle of a transition (a window opening, a text handing over),
+// the page settles gently to the nearer complete state, in the direction the user was going.
+if (TOUCH) {
+  const pA = v => v * A, pB = v => A + v * (1 - A);
+  const wP = l => pB(.17 + (l / 4) * .81);           // world-local → stage progress
+  const zones = [
+    [pA(.05), pA(.16)],                                 // headline split
+    [pA(.2), pA(.28)],                                  // offer reveal
+    [pA(.42), pA(.63)],                                 // offer out + portal opening
+    [pA(.92), pB(.07)],                                 // manifesto hands over to "four worlds"
+    [pB(.12), wP(.55)],                                 // title leaves, first world opens
+    [wP(.93), wP(1.55)], [wP(1.93), wP(2.55)], [wP(2.93), wP(3.55)]  // each next world
+  ];
+  const ease3 = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  let idle, snapping = false, lastDir = 1;
+  const settle = () => {
+    if (snapping || lenis.isTouching || !viewerClosed()) return;
+    const st = S1.st, len = st.end - st.start; if (len <= 0) return;
+    const y = lenis.scroll; if (y <= st.start || y >= st.end) return;
+    const P = (y - st.start) / len;
+    const z = zones.find(([a, b]) => P > a + .0005 && P < b - .0005); if (!z) return;
+    const f = (P - z[0]) / (z[1] - z[0]);
+    const to = f > (lastDir > 0 ? .42 : .58) ? z[1] : z[0];
+    const ty = st.start + to * len, dist = Math.abs(ty - y);
+    snapping = true;
+    lenis.scrollTo(ty, { duration: Math.min(1.4, .7 + dist / innerHeight * .5), easing: ease3, onComplete: () => { snapping = false; } });
+    setTimeout(() => { snapping = false; }, 1600);
+  };
+  lenis.on('scroll', l => {
+    if (l.direction) lastDir = l.direction;
+    clearTimeout(idle); idle = setTimeout(settle, 140);
+  });
+  // cap the glide after a flick: inside the cinematic scenes one flick moves at most ~3/4 of a screen
+  addEventListener('touchend', () => {
+    const st = S1.st, y = lenis.scroll;
+    const inScene = (y > st.start && y < st.end) || (y > S2.st.start && y < S2.st.end);
+    const vmax = innerHeight * (inScene ? .75 : 1.3) / INERTIA;
+    lenis.velocity = clamp(lenis.velocity, -vmax, vmax);
+  }, { capture: true, passive: true });
+}
+
+const viewerClosed = () => { const v = document.getElementById('viewer'); return !v || v.hidden; };
+
+/* ======================= anchors via lenis ======================= */
+$$('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+  const id = a.getAttribute('href'); if (id.length < 2) return; const t = $(id); if (!t) return;
+  e.preventDefault(); lenis.scrollTo(t, { offset: id === '#top' ? 0 : -10, duration: 1.6 });
+}));
+
+setupCommon(lenis);
+
+function setupCommon(lenis) {
+  /* nav hide/show + solid */
+  const nav = $('#nav'), fab = $('#waFab'); let lastY = 0;
+  const onScroll = () => {
+    const y = scrollY;
+    const heroEl = $('.hero'); const stageEnd = heroEl.offsetTop + heroEl.offsetHeight - innerHeight;
+    nav.classList.toggle('solid', y > stageEnd);
+    nav.classList.toggle('hide', y > lastY && y > innerHeight * .9);
+    fab.classList.toggle('off', y < innerHeight * 1.5);
+    lastY = y;
+  };
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  /* slideshow */
+  const slides = $$('[data-slide]'); let cur = 0, timer;
+  // the hosted preview blocks other sites inside frames: there the card simply opens the site
+  const FRAME_OK = !/claude|anthropic/i.test(location.hostname);
+  $$('.shot-img').forEach(img => {
+    const ok = () => img.parentNode && img.parentNode.classList.add('has-img');
+    if (img.complete && img.naturalWidth) ok(); else { img.addEventListener('load', ok); img.addEventListener('error', () => img.remove()); }
+  });
+  const box = $('#slides'), track = $('#slidesTrack');
+  const GAP = 48, step = () => box.clientWidth + GAP;
+  const place = (dx = 0, anim = true) => { track.classList.toggle('anim', anim); track.style.transform = `translate3d(${-cur * step() + dx}px,0,0)`; };
+  const show = i => {
+    cur = Math.max(0, Math.min(slides.length - 1, i < 0 ? slides.length - 1 : i >= slides.length ? 0 : i));
+    slides.forEach((s, k) => { s.classList.toggle('is-current', k === cur); s.setAttribute('aria-hidden', k === cur ? 'false' : 'true'); s.inert = k !== cur; });
+    place(0, true);
+  };
+  addEventListener('resize', () => place(0, false));
+
+  /* swipe with the thumb anywhere on the slide: 1:1 follow, decided by distance or flick, soft resistance at the ends */
+  let sx = 0, sy = 0, st0 = 0, axis = null, dx = 0, moved = false, lastX = 0, lastT = 0, vx = 0;
+  box.addEventListener('touchstart', e => {
+    const t = e.touches[0]; sx = lastX = t.clientX; sy = t.clientY; st0 = lastT = performance.now(); axis = null; dx = 0; vx = 0; moved = false;
+    clearInterval(timer);
+  }, { passive: true });
+  box.addEventListener('touchmove', e => {
+    const t = e.touches[0], ddx = t.clientX - sx, ddy = t.clientY - sy;
+    if (!axis) { if (Math.abs(ddx) < 7 && Math.abs(ddy) < 7) return; axis = Math.abs(ddx) > Math.abs(ddy) * 1.15 ? 'x' : 'y'; }
+    if (axis !== 'x') return;
+    e.preventDefault(); e.stopPropagation();                     // the page stays still while you swipe sideways
+    const now = performance.now(); vx = (t.clientX - lastX) / Math.max(1, now - lastT); lastX = t.clientX; lastT = now;
+    const atEdge = (cur === 0 && ddx > 0) || (cur === slides.length - 1 && ddx < 0);
+    dx = atEdge ? ddx * .32 : ddx; moved = true;
+    place(dx, false);
+  }, { passive: false });
+  const release = e => {
+    if (axis === 'x') {
+      if (window.__lenis) window.__lenis.velocity = 0;
+      const w = box.clientWidth, go = Math.abs(dx) > w * .18 || Math.abs(vx) > .45;
+      if (go && dx < 0 && cur < slides.length - 1) cur++;
+      else if (go && dx > 0 && cur > 0) cur--;
+      show(cur);
+    }
+    axis = null; restart();
+  };
+  box.addEventListener('touchend', release, { passive: true });
+  box.addEventListener('touchcancel', release, { passive: true });
+  box.addEventListener('click', e => { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
+  show(0);
+
+  /* site viewer: the card opens into a full-screen, navigable window (brand verb: Expand) */
+  const viewer = $('#viewer'), vFrame = $('#viewerFrame'), vDom = $('#viewerDom'), vOpen = $('#viewerOpen'), vClose = $('#viewerClose');
+  let vFrom = null, vIframe = null;
+  const rectInset = r => `inset(${r.top}px ${innerWidth - r.right}px ${innerHeight - r.bottom}px ${r.left}px round 14px)`;
+  function openViewer(a) {
+    vFrom = a; clearInterval(timer);
+    const shot = a.closest('.shot'), img = $('img', shot);
+    vDom.innerHTML = `<i></i>${a.dataset.dom}`; vOpen.href = a.dataset.site;
+    vFrame.style.backgroundImage = img ? `url(${img.currentSrc || img.src})` : 'none';
+    vFrame.classList.remove('ready');
+    vIframe = document.createElement('iframe');
+    vIframe.title = a.dataset.dom; vIframe.src = a.dataset.site;
+    vIframe.setAttribute('allow', 'fullscreen; autoplay');
+    vIframe.addEventListener('load', () => vFrame.classList.add('ready'));
+    vFrame.appendChild(vIframe);
+    viewer.hidden = false;
+    if (!RM) { viewer.style.transition = 'none'; viewer.style.clipPath = rectInset(shot.getBoundingClientRect()); viewer.offsetHeight; viewer.style.transition = ''; }
+    requestAnimationFrame(() => { viewer.style.clipPath = 'inset(0 0 0 0 round 0px)'; });
+    document.documentElement.style.overflow = 'hidden'; lenis && lenis.stop();
+    vClose.focus();
+  }
+  function closeViewer() {
+    if (viewer.hidden) return;
+    const shot = vFrom && vFrom.closest('.shot');
+    const done = () => { viewer.hidden = true; if (vIframe) { vIframe.remove(); vIframe = null; } document.documentElement.style.overflow = ''; lenis && lenis.start(); vFrom && vFrom.focus(); restart(); };
+    if (RM || !shot) return done();
+    viewer.style.clipPath = rectInset(shot.getBoundingClientRect());
+    setTimeout(done, 820);
+  }
+  $$('.shot-open').forEach(a => a.addEventListener('click', e => {
+    if (!FRAME_OK || a.dataset.frame !== 'ok') return; // plain link: opens the site in a new tab
+    e.preventDefault(); openViewer(a);
+  }));
+  vClose.addEventListener('click', closeViewer);
+  addEventListener('keydown', e => {
+    if (viewer.hidden) return;
+    if (e.key === 'Escape') closeViewer();
+    if (e.key === 'Tab') { const f = [vOpen, vClose]; const i = f.indexOf(document.activeElement); if (e.shiftKey && i <= 0) { e.preventDefault(); vClose.focus(); } else if (!e.shiftKey && i === f.length - 1) { e.preventDefault(); vOpen.focus(); } }
+  });
+  $('#prev').addEventListener('click', () => { show(cur - 1 < 0 ? slides.length - 1 : cur - 1); restart(); });
+  $('#next').addEventListener('click', () => { show(cur + 1 >= slides.length ? 0 : cur + 1); restart(); });
+  const restart = () => { clearInterval(timer); if (!RM && viewer.hidden) timer = setInterval(() => show(cur + 1 >= slides.length ? 0 : cur + 1), 9000); };
+  const sl = $('#slides'); sl.addEventListener('mouseenter', () => clearInterval(timer)); sl.addEventListener('mouseleave', restart);
+  restart();
+
+  /* plan buttons preselect type */
+  $$('[data-plan]').forEach(b => b.addEventListener('click', () => {
+    const m = $('#fMsg'); if (!m.value) m.value = (lang === 'en' ? 'Interested in the ' : 'Mi interessa il pacchetto ') + b.dataset.plan + (lang === 'en' ? ' package.' : '.');
+    if (b.dataset.plan === 'Supernova') $('#t3').checked = true; compose();
+  }));
+
+  /* form → WhatsApp: a real link, kept in sync with the fields */
+  const form = $('#leadForm'), send = $('#waSend'), err = $('#fErr');
+  const compose = () => {
+    const name = $('#fName').value.trim(), type = $('input[name=type]:checked').value, msg = $('#fMsg').value.trim();
+    const text = lang === 'en'
+      ? `Hi NovaSignal, I'm ${name}. I need: ${type}.${msg ? '\n' + msg : ''}`
+      : `Ciao NovaSignal, sono ${name}. Mi serve: ${type}.${msg ? '\n' + msg : ''}`;
+    send.href = 'https://wa.me/393206891014?text=' + encodeURIComponent(text);
+    return name;
+  };
+  form.addEventListener('input', compose); form.addEventListener('change', compose);
+  send.addEventListener('click', e => {
+    if (!compose()) { e.preventDefault(); err.textContent = (lang === 'en' ? EN : IT)['f.err']; $('#fName').focus(); }
+    else err.textContent = '';
+  });
+  form.addEventListener('submit', e => { e.preventDefault(); send.click(); });
+  compose();
+}
+})();
+</script>
+</body>
+</html>
