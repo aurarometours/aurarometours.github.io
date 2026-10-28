@@ -27,6 +27,8 @@ jobs:
         run: |
           mkdir -p _site
           unzip -q aurablog-pages.zip -d _site
+          # NovaSignal site preview, served at /novasignal-site/
+          if [ -d novasignal-site ]; then cp -r novasignal-site _site/novasignal-site; fi
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload Pages artifact
